@@ -1,0 +1,30 @@
+<div class="container">
+  <img src="/assets/IdeasFactoryLogo.jpg" >
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:gold">
+      <a class="navbar-brand" href="#" (click)="showdiv(1)"><h4>Home</h4></a>
+      <a class="navbar-brand" href="#" (click)="showdiv(2)" *ngIf="logged"><h4>Admin</h4></a>
+
+      <form #myForm="ngForm" class="form-inline" style="float: right;" *ngIf="!logged">
+        <input type="text" class="form-control mr-sm-2" name="username" placeholder="Username" [(ngModel)]="username" required>
+        <input type="password" class="form-control mr-sm-2" name="password" placeholder="Password" [(ngModel)]="password" required>
+        <button class="btn btn-secondary" [disabled]="!myForm.form.valid" (click)="checkauth()">Login</button>        
+      </form>
+
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="checkauth()" *ngIf="logged" style="float: right;">Logout</button>
+
+  </nav>
+  
+  <div *ngIf="divnum == 1" ><br>
+    <app-idea></app-idea>    
+  </div>
+    <div *ngIf="divnum == 2">
+      <app-login></app-login>
+    </div>
+
+</div>
+
+<!-- (click)="checkauth()"" 
+action="{{checkauth()}}" 
+[ngModelOptions]="{standalone: true}"
+-->

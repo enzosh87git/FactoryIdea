@@ -1,0 +1,7 @@
+<h4>Add an admin</h4>
+<form class="form-inline">
+    <input class="form-control mr-sm-2" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="text" placeholder="Username" required>
+    <input class="form-control mr-sm-2" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" placeholder="Password" required>
+    <button class="btn btn-outline-success" (click)="addAdmin()">Add Admin</button>        
+</form>
+

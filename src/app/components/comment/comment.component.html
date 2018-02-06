@@ -1,0 +1,11 @@
+<h4>What do you think about ?</h4>
+<form>
+  <textarea class="form-control" rows="9" [(ngModel)]="messageComment" [ngModelOptions]="{standalone: true}" placeholder="write your comment" maxlength="500"></textarea>      
+  <button type="submit" class="btn bottom-right text-black" (click)="sendComment()" style="float: right; background-color:gold">Send Message</button>
+</form>
+<br><br>
+<h4>Related comments</h4>
+<div *ngFor = "let comment of currentidea.comlist">
+  <p class="list-group-item list-group-item-action">{{comment.text}}<br>
+    <small style="float: right;">{{comment.dateComment}}</small><br></p>
+</div>

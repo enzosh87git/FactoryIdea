@@ -1,0 +1,23 @@
+
+<h4>Tell us about your idea</h4>
+<form>
+  <textarea class="form-control" rows="4" [(ngModel)]="messageIdea" [ngModelOptions]="{standalone: true}" placeholder="write here your idea" maxlength="500"></textarea>      
+  <button type="submit" class="btn bottom-right text-black" (click)="sendIdea()" style="float: right; background-color:gold">Send Message</button>
+</form>
+
+<div class="row"><br><br>
+  <div class="col col-lg-6">
+    <h4>Latest Ideas</h4>
+    <div class="list-group" *ngFor = "let idea of ideas" (click)="onSelect(idea)">
+      <p class="list-group-item list-group-item-action">{{idea.text}}<br>
+         <button *ngIf="logged" type="button" class="btn btn-primary btn-sm" (click)="modify()">Update</button>
+         <button *ngIf="logged" type="button" class="btn btn-primary btn-sm" (click)="delete(idea)">Delete</button>
+         <small style="float: right;">{{idea.dateIdea}}</small><br>
+      </p>          
+    </div>
+  </div>
+  <div class="col col-lg-6" *ngIf="selectedIdea">
+      <app-comment></app-comment>
+  </div>        
+  </div>  
+
